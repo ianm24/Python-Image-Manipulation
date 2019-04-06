@@ -30,7 +30,6 @@ def r2(width,height):
 	r4 = random.randint(0,255)
 	for x in xrange(width):
 		for y in xrange(height):
-			# color of loaded bar
 			if(random.randint(1,2) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -55,7 +54,6 @@ def r3(width,height):
 	r4 = random.randint(0,255)
 	for x in xrange(width):
 		for y in xrange(height):
-			# color of loaded bar
 			if(random.randint(1,25) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -80,7 +78,6 @@ def r4(width,height):
 	r4 = random.randint(0,255)
 	for x in xrange(width):
 		for y in xrange(height):
-			# color of loaded bar
 			if(random.randint(1,height) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -105,8 +102,6 @@ def r5(width,height):
 	r4 = random.randint(0,255)
 	for x in xrange(width):
 		for y in xrange(height):
-			# color of loaded bar
-			# print(str(x)+" "+str(y))
 			if(random.randint(1,height/2) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -135,7 +130,6 @@ def r6(width,height):
 	r4 = random.randint(0,255)
 	for x in xrange(width):
 		for y in xrange(height):
-			# color of loaded bar
 			if(random.randint(1,height/2) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -168,7 +162,6 @@ def r7(width,height):
 	r4 = random.randint(100,200)
 	for x in xrange(width):
 		for y in xrange(height):
-			# color of loaded bar
 			if(random.randint(1,height/2) == 1):
 				r1 = random.randint(100,200)
 				r2 = random.randint(100,200)
@@ -205,7 +198,6 @@ def r8(width,height):
 	r4 = random.randint(100,200)
 	for x in xrange(width):
 		for y in xrange(height):
-			# color of loaded bar
 			if(random.randint(1,height/2) == 1):
 				r1 = random.randint(100,200)
 				r2 = random.randint(100,200)
