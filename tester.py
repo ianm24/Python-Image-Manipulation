@@ -1,4 +1,4 @@
-#testing
+#Tester made by Ian McDowell on 5 April 2019
 import os, randomColors, transformImage
 
 
