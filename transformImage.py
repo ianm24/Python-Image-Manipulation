@@ -148,4 +148,20 @@ def addPhotos(f1,f2):
 	img.save('images/photos_added.bmp')
 	print("Files added")
 
+#----------------------Filters------------------------------------------
 
+#turns photo into monochrome colors
+def monochrome(fileName, path):
+	im = Image.open(path + '/' + fileName)
+	pixels = im.load()
+	width = im.size[0];
+	height = im.size[1];
+	global img
+	img = Image.new("RGBA",(width, height),(0,0,0,0))
+	for x in range(width):
+		for y in range(height):
+			color = pixels[x,y][0] + pixels[x,y][1] + pixels[x,y][2]
+			color = int(color/3) % 255
+			img.putpixel((x,y),(color,color,color,255))
+	img.save(path + "/" + fileName[:fileName.find('.')] + '_MC.bmp')
+	print("Monochrome file has been created")
