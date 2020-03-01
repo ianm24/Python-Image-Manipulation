@@ -12,8 +12,8 @@ def flipY(fileName):
 	height = im.size[1];
 	global img
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
 			img.putpixel((x,y),pixels[x,abs(y-height)-1])
 	img.save(fileName[:fileName.find('.')] + '_FlipY.bmp')
 	print("Flipped-Y file has been created")
@@ -26,8 +26,8 @@ def flipX(fileName):
 	height = im.size[1];
 	global img
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
 			img.putpixel((x,y),pixels[abs(x-width)-1,y])
 	img.save(fileName[:fileName.find('.')] + '_FlipX.bmp')
 	print("Flipped-X file has been created")
@@ -40,8 +40,8 @@ def randFlipX(fileName, saveName):
 	height = im.size[1];
 	global img
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
 			if(random.randint(1,2) == 1):
 				img.putpixel((x,y),pixels[abs(x-width)-1,y])
 			else:
@@ -57,8 +57,8 @@ def randFlipY(fileName, saveName):
 	height = im.size[1];
 	global img
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
 			if(random.randint(1,2) == 1):
 				img.putpixel((x,y),pixels[x,abs(y-height)-1])
 			else:
@@ -70,7 +70,7 @@ def randFlipY(fileName, saveName):
 def randFlipXGif(fileName,path):
 	images = []
 	iList = []
-	for i in xrange(10):
+	for i in range(10):
 		randFlipX(path+'/'+fileName, path+'/'+str(i)+fileName)
 		images.append(imageio.imread(path+'/'+str(i)+fileName.split('.')[0]+'_RandFlipX.bmp'))
 		iList.append(path+'/'+str(i)+fileName.split('.')[0]+'_RandFlipX.bmp')
@@ -82,7 +82,7 @@ def randFlipXGif(fileName,path):
 def randFlipYGif(fileName,path):
 	images = []
 	iList = []
-	for i in xrange(10):
+	for i in range(10):
 		randFlipY(path+'/'+fileName, path+'/'+str(i)+fileName)
 		images.append(imageio.imread(path+'/'+str(i)+fileName.split('.')[0]+'_RandFlipY.bmp'))
 		iList.append(path+'/'+str(i)+fileName.split('.')[0]+'_RandFlipY.bmp')
@@ -104,8 +104,8 @@ def square(f1,f2,f3,f4,saveName):
 	width = im1.size[0]+im2.size[0]
 	height = im1.size[1]+im3.size[1]
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
 			if(x < im1.size[0] and y < im1.size[1]):
 				img.putpixel((x,y),p1[x,y])
 			elif(x >= im1.size[0] and y < im1.size[1]):
@@ -138,8 +138,8 @@ def addPhotos(f1,f2):
 		width = im1.size[0]
 		height = im1.size[1]
 		img = Image.new("RGBA",(width, height),(0,0,0,0))
-		for x in xrange(width):
-			for y in xrange(height):
+		for x in range(width):
+			for y in range(height):
 				R=(p1[x,y][0]+p2[x,y][0]) % 255
 				G=(p1[x,y][1]+p2[x,y][1]) % 255
 				B=(p1[x,y][2]+p2[x,y][2]) % 255
@@ -147,3 +147,5 @@ def addPhotos(f1,f2):
 				img.putpixel((x,y),(R,G,B,A))
 	img.save('images/photos_added.bmp')
 	print("Files added")
+
+

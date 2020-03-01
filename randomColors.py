@@ -10,8 +10,8 @@ testPath = 'test'
 def r1(width,height):
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
 	img.save(path+'/r1.bmp')
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
 			r1 = random.randint(0,255)
 			r2 = random.randint(0,255)
 			r3 = random.randint(0,255)
@@ -28,8 +28,9 @@ def r2(width,height):
 	r2 = random.randint(0,255)
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
+			# color of loaded bar
 			if(random.randint(1,2) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -52,8 +53,9 @@ def r3(width,height):
 	r2 = random.randint(0,255)
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
+			# color of loaded bar
 			if(random.randint(1,25) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -76,8 +78,9 @@ def r4(width,height):
 	r2 = random.randint(0,255)
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
+			# color of loaded bar
 			if(random.randint(1,height) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -100,9 +103,11 @@ def r5(width,height):
 	r2 = random.randint(0,255)
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,height/2) == 1):
+	for x in range(width):
+		for y in range(height):
+			# color of loaded bar
+			# print(str(x)+" "+str(y))
+			if(random.randint(1,int(height/2)) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
 				r3 = random.randint(0,255)
@@ -111,8 +116,8 @@ def r5(width,height):
 			if(where == 0):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 			else:
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
-		if(random.randint(1,height/2) == 1):
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
+		if(random.randint(1,int(height/2)) == 1):
 			r1 = random.randint(0,255)
 			r2 = random.randint(0,255)
 			r3 = random.randint(0,255)
@@ -128,9 +133,10 @@ def r6(width,height):
 	r2 = random.randint(0,255)
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,height/2) == 1):
+	for x in range(width):
+		for y in range(height):
+			# color of loaded bar
+			if(random.randint(1,int(height/2)) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
 				r3 = random.randint(0,255)
@@ -139,12 +145,12 @@ def r6(width,height):
 			if(where == 0):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 			elif(where == 1):
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 			elif(where == 2):
-				img.putpixel((x/2,y/2),(r1,r2,r3,r4))
+				img.putpixel((int(x/2),int(y/2)),(r1,r2,r3,r4))
 			else:
-				img.putpixel((((y*width)/height)/2,((x*height)/width)/2),(r1,r2,r3,r4))
-		if(random.randint(1,height/2) == 1):
+				img.putpixel((int(((y*width)/height)/2),int(((x*height)/width)/2)),(r1,r2,r3,r4))
+		if(random.randint(1,int(height/2)) == 1):
 			r1 = random.randint(0,255)
 			r2 = random.randint(0,255)
 			r3 = random.randint(0,255)
@@ -160,9 +166,10 @@ def r7(width,height):
 	r2 = random.randint(100,200)
 	r3 = random.randint(100,200)
 	r4 = random.randint(100,200)
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,height/2) == 1):
+	for x in range(width):
+		for y in range(height):
+			# color of loaded bar
+			if(random.randint(1,int(height/2)) == 1):
 				r1 = random.randint(100,200)
 				r2 = random.randint(100,200)
 				r3 = random.randint(100,200)
@@ -171,16 +178,16 @@ def r7(width,height):
 			if(where == 0):
 				img.putpixel((x,y),(255,r2,r3,r4))
 			elif(where == 1):
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,255,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,255,r3,r4))
 			elif(where == 2):
-				img.putpixel((x/2,y/2),(r1,r2,255,r4))
+				img.putpixel((int(x/2),int(y/2)),(r1,r2,255,r4))
 			elif(where == 3):
-				img.putpixel((((y*width)/height)/2,((x*height)/width)/2),(r1,r2,r3,255))
+				img.putpixel((int(((y*width)/height)/2),int(((x*height)/width)/2)),(r1,r2,r3,255))
 			elif(where == 4):
-				img.putpixel((x/3,y/3),(255,r2,r3,r4))
+				img.putpixel((int(x/3),int(y/3)),(255,r2,r3,r4))
 			else:
-				img.putpixel((((y*width)/height)/3,((x*height)/width)/3),(r1,255,r3,r4))
-		if(random.randint(1,height/2) == 1):
+				img.putpixel((int(((y*width)/height)/3),int(((x*height)/width)/3)),(r1,255,r3,r4))
+		if(random.randint(1,int(height/2)) == 1):
 			r1 = random.randint(100,200)
 			r2 = random.randint(100,200)
 			r3 = random.randint(100,200)
@@ -196,9 +203,10 @@ def r8(width,height):
 	r2 = random.randint(100,200)
 	r3 = random.randint(100,200)
 	r4 = random.randint(100,200)
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,height/2) == 1):
+	for x in range(width):
+		for y in range(height):
+			# color of loaded bar
+			if(random.randint(1,int(height/2)) == 1):
 				r1 = random.randint(100,200)
 				r2 = random.randint(100,200)
 				r3 = random.randint(100,200)
@@ -207,20 +215,20 @@ def r8(width,height):
 			if(where == 0):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 			elif(where == 1):
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 			elif(where == 2):
-				img.putpixel((x/2,y/2),(r1,255,255,r4))
+				img.putpixel((int(x/2),int(y/2)),(r1,255,255,r4))
 			elif(where == 3):
-				img.putpixel((((y*width)/height)/2,((x*height)/width)/2),(255,r2,255,r4))
+				img.putpixel((int(((y*width)/height)/2),int(((x*height)/width)/2)),(255,r2,255,r4))
 			elif(where == 4):
-				img.putpixel((3*(x/2)/2,3*(y/2)/2),(255,r2,255,r4))
+				img.putpixel((int(3*(x/2)/2),int(3*(y/2)/2)),(255,r2,255,r4))
 			elif(where == 5):
-				img.putpixel((3*(((y*width)/height)/2)/2,3*(((x*height)/width)/2)/2),(255,255,r3,r4))
+				img.putpixel((int(3*(((y*width)/height)/2)/2),int(3*(((x*height)/width)/2)/2)),(255,255,r3,r4))
 			elif(where == 6):
-				img.putpixel((x/3,y/3),(255,r2,r3,r4))
+				img.putpixel((int(x/3),int(y/3)),(255,r2,r3,r4))
 			elif(where == 7):
-				img.putpixel((((y*width)/height)/3,((x*height)/width)/3),(r1,255,r3,r4))
-		if(random.randint(1,height/2) == 1):
+				img.putpixel((int(((y*width)/height)/3),int(((x*height)/width)/3)),(r1,255,r3,r4))
+		if(random.randint(1,int(height/2)) == 1):
 			r1 = random.randint(100,200)
 			r2 = random.randint(100,200)
 			r3 = random.randint(100,200)
@@ -237,9 +245,9 @@ def r9(width,height):
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
 	where = 0
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,height/2) == 1):
+	for x in range(width):
+		for y in range(height):
+			if(random.randint(1,int(height/2)) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
 				r3 = random.randint(0,255)
@@ -248,7 +256,7 @@ def r9(width,height):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 				where = 1
 			else:
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 				where = 0
 	print("r9 Pixels Placed")
 	img.save(path+'/r9.bmp')
@@ -262,9 +270,9 @@ def r10(width,height):
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
 	where = 0
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,height/2) == 1):
+	for x in range(width):
+		for y in range(height):
+			if(random.randint(1,int(height/2)) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
 				r3 = random.randint(0,255)
@@ -272,7 +280,7 @@ def r10(width,height):
 			if(where == 0):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 			else:
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 			if(r1 == r2 or r1 == r3 or r1 == r4 or r2 == r3 or r2 == r4 or r3 == r4 or x == y):
 				where = 0
 			else:
@@ -289,9 +297,9 @@ def r11(width,height):
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
 	where = 0
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,(height*width)/5) == 1):
+	for x in range(width):
+		for y in range(height):
+			if(random.randint(1,int((height*width)/5)) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
 				r3 = random.randint(0,255)
@@ -299,7 +307,7 @@ def r11(width,height):
 			if(where == 0):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 			else:
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 			if(r1 == r2 or r1 == r3 or r1 == r4 or r2 == r3 or r2 == r4 or r3 == r4):
 				where = 0
 			else:
@@ -316,9 +324,9 @@ def p1(width,height):
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
 	where = 0
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,(height*width)/5) == 1):
+	for x in range(width):
+		for y in range(height):
+			if(random.randint(1,int((height*width)/5)) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
 				r3 = random.randint(0,255)
@@ -327,7 +335,7 @@ def p1(width,height):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 				where = 1
 			else:
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 				where = 0
 	print("p1 Pixels Placed")
 	img.save(path+'/p1.bmp')
@@ -341,8 +349,8 @@ def p2(width,height):
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
 	where = 0
-	for x in xrange(width):
-		for y in xrange(height):
+	for x in range(width):
+		for y in range(height):
 			if(random.randint(1,5*height) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
@@ -352,7 +360,7 @@ def p2(width,height):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 				where = 1
 			else:
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 				where = 0
 	print("p2 Pixels Placed")
 	img.save(path+'/p2.bmp')
@@ -365,9 +373,9 @@ def misc(width,height,savename):
 	r3 = random.randint(0,255)
 	r4 = random.randint(0,255)
 	where = 0
-	for x in xrange(width):
-		for y in xrange(height):
-			if(random.randint(1,(height*width)/5) == 1):
+	for x in range(width):
+		for y in range(height):
+			if(random.randint(1,int((height*width)/5)) == 1):
 				r1 = random.randint(0,255)
 				r2 = random.randint(0,255)
 				r3 = random.randint(0,255)
@@ -376,17 +384,17 @@ def misc(width,height,savename):
 				img.putpixel((x,y),(r1,r2,r3,r4))
 				where = 1
 			else:
-				img.putpixel(((y*width)/height,(x*height)/width),(r1,r2,r3,r4))
+				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 				where = 0
 	img.save(testPath+'/'+savename+'.bmp')
 
 def rSquare(width,height,savename):
-	misc(width/2,height/2,savename)
+	misc(int(width/2),int(height/2),savename)
 	transformImage.squareStitch(testPath+'/'+savename+'.bmp')
 
 def repeated(width,height,savename):
 	sn = 0
-	for x in xrange(10):
+	for x in range(10):
 		rSquare(width,height,savename+str(sn))
 		os.remove(testPath+'/'+savename+str(sn)+'.bmp')
 		os.remove(testPath+'/'+savename+str(sn)+'_FlipX.bmp')
