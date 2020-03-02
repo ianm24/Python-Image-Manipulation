@@ -210,6 +210,23 @@ def blueFilter(fileName, path):
 	img.save(path + "/" + fileName[:fileName.find('.')] + '_BF.bmp')
 	print("Blue Filtered file has been created")
 
+#inverts colors of images
+def colorInvert(fileName, path):
+	im = Image.open(path + '/' + fileName)
+	pixels = im.load()
+	width = im.size[0];
+	height = im.size[1];
+	global img
+	img = Image.new("RGBA",(width, height),(0,0,0,0))
+	for x in range(width):
+		for y in range(height):
+			R = pixels[x,y][0]
+			G = pixels[x,y][1]
+			B = pixels[x,y][2]
+			img.putpixel((x,y),(-R % 255,-G % 255,-B % 255,255))
+	img.save(path + "/" + fileName[:fileName.find('.')] + '_inverted.bmp')
+	print("Inverted file has been created")
+
 #idk
 def test(fileName, path):
 	im = Image.open(path + '/' + fileName)
@@ -220,7 +237,9 @@ def test(fileName, path):
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
 	for x in range(width):
 		for y in range(height):
-			color = pixels[x,y][0] 
-			img.putpixel((x,y),(color,0,0,255))
+			R = pixels[x,y][0]
+			G = pixels[x,y][1]
+			B = pixels[x,y][2]
+			img.putpixel((x,y),(-R % 255,-G % 255,-B % 255,255))
 	img.save(path + "/" + fileName[:fileName.find('.')] + '_test.bmp')
 	print("Test file has been created")
