@@ -95,6 +95,6 @@ def test(fileName, path):
 			R = pixels[x,y][0]
 			G = pixels[x,y][1]
 			B = pixels[x,y][2]
-			img.putpixel((x,y),(-R % 255,-G % 255,-B % 255,255))
+			img.putpixel((x,y),(2*R % 255,int(G/2) % 255,int(B/2) % 255,255))
 	img.save(path + "/" + fileName[:fileName.find('.')] + '_test.bmp')
 	print("Test file has been created")

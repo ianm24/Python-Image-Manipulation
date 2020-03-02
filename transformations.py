@@ -130,7 +130,6 @@ def squareStitch(fileName):
 
 #adds pixels of 2 photos
 def addSameDimPhotos(f1,f2,path1,path2):
->>>>>>> master
 	im1 = Image.open(path1 + "/" + f1)
 	im2 = Image.open(path2 + "/" + f2)
 	p1 = im1.load()
