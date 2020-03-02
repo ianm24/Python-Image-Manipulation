@@ -3,13 +3,9 @@ import os, randomImageMaker, transformations, filters
 
 
 path = 'images'
-testPath = 'test'
 if(os.path.exists(path) == False):
 	os.mkdir(path)
 	print("images Directory Created Successfully")
-if(os.path.exists(testPath) == False):
-	os.mkdir(testPath)
-	print("test Directory Created Successfully")
 
 width = height = 100
 #randomized pixels
@@ -38,7 +34,8 @@ filters.redFilter('r11.bmp',path)
 filters.greenFilter('r11.bmp',path)
 filters.blueFilter('r11.bmp',path)
 filters.colorInvert('r11.bmp',path)
-filter.test('r11.bmp',path)
+filters.test('r11.bmp',path)
 #add photos
 transformations.addSameDimPhotos('r11_RF.bmp','r11_GF.bmp',path,path)
 transformations.addSameDimPhotos('r11_BF.bmp','r11_RF_plus_r11_GF.bmp',path,path)
+transformations.addPhotos('p.bmp','r11.bmp',path,path)

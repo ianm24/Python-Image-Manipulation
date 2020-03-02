@@ -2,9 +2,8 @@
 # Started 3 March 2019
 
 from PIL import Image
-import glob, os, imageio, random, math, transformImage
+import glob, os, imageio, random, math, transformations
 path = 'images'
-testPath = 'test'
 
 #complete random static
 def r1(width,height):
@@ -343,7 +342,7 @@ def p1(width,height):
 #more intricate plaid
 def p2(width,height):
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
-	img.save(testPath+'/p2.bmp')
+	img.save(path+'/p2.bmp')
 	r1 = random.randint(0,255)
 	r2 = random.randint(0,255)
 	r3 = random.randint(0,255)
@@ -367,7 +366,7 @@ def p2(width,height):
 
 def misc(width,height,savename):
 	img = Image.new("RGBA",(width, height),(0,0,0,0))
-	img.save(testPath+'/'+savename+'.bmp')
+	img.save(path+'/'+savename+'.bmp')
 	r1 = random.randint(0,255)
 	r2 = random.randint(0,255)
 	r3 = random.randint(0,255)
@@ -386,18 +385,18 @@ def misc(width,height,savename):
 			else:
 				img.putpixel((int((y*width)/height),int((x*height)/width)),(r1,r2,r3,r4))
 				where = 0
-	img.save(testPath+'/'+savename+'.bmp')
+	img.save(path+'/'+savename+'.bmp')
 
 def rSquare(width,height,savename):
 	misc(int(width/2),int(height/2),savename)
-	transformImage.squareStitch(testPath+'/'+savename+'.bmp')
+	transformations.squareStitch(path+'/'+savename+'.bmp')
 
 def repeated(width,height,savename):
 	sn = 0
 	for x in range(10):
 		rSquare(width,height,savename+str(sn))
-		os.remove(testPath+'/'+savename+str(sn)+'.bmp')
-		os.remove(testPath+'/'+savename+str(sn)+'_FlipX.bmp')
-		os.remove(testPath+'/'+savename+str(sn)+'_FlipY.bmp')
-		os.remove(testPath+'/'+savename+str(sn)+'_FlipY_FlipX.bmp')
+		os.remove(path+'/'+savename+str(sn)+'.bmp')
+		os.remove(path+'/'+savename+str(sn)+'_FlipX.bmp')
+		os.remove(path+'/'+savename+str(sn)+'_FlipY.bmp')
+		os.remove(path+'/'+savename+str(sn)+'_FlipY_FlipX.bmp')
 		sn += 1
