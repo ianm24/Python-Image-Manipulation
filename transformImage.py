@@ -129,20 +129,41 @@ def squareStitch(fileName):
 		fileName,fileName)
 
 #adds pixels of 2 photos
-def addPhotos(f1,f2,path1,path2):
+def addSameDimPhotos(f1,f2,path1,path2):
+>>>>>>> master
 	im1 = Image.open(path1 + "/" + f1)
 	im2 = Image.open(path2 + "/" + f2)
 	p1 = im1.load()
 	p2 = im2.load()
-	if im1.size[0] == im2.size[0] and im2.size[0] == im2.size[1]:
+	if im1.size[0] == im2.size[0] and im1.size[1] == im2.size[1]:
 		width = im1.size[0]
 		height = im1.size[1]
 		img = Image.new("RGBA",(width, height),(0,0,0,0))
 		for x in range(width):
 			for y in range(height):
-				R=(p1[x,y][0]+p2[x,y][0]) % 255
-				G=(p1[x,y][1]+p2[x,y][1]) % 255
-				B=(p1[x,y][2]+p2[x,y][2]) % 255
+				R=(p1[x,y][0]+p2[x,y][0])
+				G=(p1[x,y][1]+p2[x,y][1])
+				B=(p1[x,y][2]+p2[x,y][2])
 				img.putpixel((x,y),(R,G,B,255))
+	img.save('images/' + f1[:f1.find('.')] + '_plus_' + f2[:f2.find('.')] + '.bmp')
+	print("Files added")
+
+#adds pixels of 2 photos
+def addPhotos(f1,f2,path1,path2):
+	im1 = Image.open(path1 + "/" + f1)
+	im2 = Image.open(path2 + "/" + f2)
+	p1 = im1.load()
+	p2 = im2.load()
+	width = im1.size[0] if im1.size[0] > im2.size[0] else im2.size[0]
+	height = im1.size[1] if im1.size[1] > im2.size[1] else im2.size[1]
+	img = Image.new("RGBA",(width, height),(0,0,0,0))
+	for x in range(width):
+		for y in range(height):
+			fileOnePixel = p1[x,y] if x < im1.size[0] and y < im1.size[1] else [0,0,0]
+			fileTwoPixel = p2[x,y] if x < im2.size[0] and y < im2.size[1] else [0,0,0]
+			R=int((fileOnePixel[0]+fileTwoPixel[0]))
+			G=int((fileOnePixel[1]+fileTwoPixel[1]))
+			B=int((fileOnePixel[2]+fileTwoPixel[2]))
+			img.putpixel((x,y),(R,G,B,255))
 	img.save('images/' + f1[:f1.find('.')] + '_plus_' + f2[:f2.find('.')] + '.bmp')
 	print("Files added")
