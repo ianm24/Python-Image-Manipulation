@@ -129,9 +129,9 @@ def squareStitch(fileName):
 		fileName,fileName)
 
 #adds pixels of 2 photos
-def addPhotos(f1,f2):
-	im1 = Image.open(f1)
-	im2 = Image.open(f2)
+def addPhotos(f1,f2,path1,path2):
+	im1 = Image.open(path1 + "/" + f1)
+	im2 = Image.open(path2 + "/" + f2)
 	p1 = im1.load()
 	p2 = im2.load()
 	if im1.size[0] == im2.size[0] and im2.size[0] == im2.size[1]:
@@ -143,9 +143,8 @@ def addPhotos(f1,f2):
 				R=(p1[x,y][0]+p2[x,y][0]) % 255
 				G=(p1[x,y][1]+p2[x,y][1]) % 255
 				B=(p1[x,y][2]+p2[x,y][2]) % 255
-				A=(p1[x,y][3]+p2[x,y][3]) % 255
-				img.putpixel((x,y),(R,G,B,A))
-	img.save('images/photos_added.bmp')
+				img.putpixel((x,y),(R,G,B,255))
+	img.save('images/' + f1[:f1.find('.')] + '_plus_' + f2[:f2.find('.')] + '.bmp')
 	print("Files added")
 
 #----------------------Filters------------------------------------------
@@ -165,3 +164,63 @@ def monochrome(fileName, path):
 			img.putpixel((x,y),(color,color,color,255))
 	img.save(path + "/" + fileName[:fileName.find('.')] + '_MC.bmp')
 	print("Monochrome file has been created")
+
+#takes all colors but red out of a picture
+def redFilter(fileName, path):
+	im = Image.open(path + '/' + fileName)
+	pixels = im.load()
+	width = im.size[0];
+	height = im.size[1];
+	global img
+	img = Image.new("RGBA",(width, height),(0,0,0,0))
+	for x in range(width):
+		for y in range(height):
+			color = pixels[x,y][0] 
+			img.putpixel((x,y),(color,0,0,255))
+	img.save(path + "/" + fileName[:fileName.find('.')] + '_RF.bmp')
+	print("Red Filtered file has been created")
+
+#takes all colors but green out of a picture
+def greenFilter(fileName, path):
+	im = Image.open(path + '/' + fileName)
+	pixels = im.load()
+	width = im.size[0];
+	height = im.size[1];
+	global img
+	img = Image.new("RGBA",(width, height),(0,0,0,0))
+	for x in range(width):
+		for y in range(height):
+			color = pixels[x,y][1] 
+			img.putpixel((x,y),(0,color,0,255))
+	img.save(path + "/" + fileName[:fileName.find('.')] + '_GF.bmp')
+	print("Green Filtered file has been created")
+
+#takes all colors but blue out of a picture
+def blueFilter(fileName, path):
+	im = Image.open(path + '/' + fileName)
+	pixels = im.load()
+	width = im.size[0];
+	height = im.size[1];
+	global img
+	img = Image.new("RGBA",(width, height),(0,0,0,0))
+	for x in range(width):
+		for y in range(height):
+			color = pixels[x,y][2] 
+			img.putpixel((x,y),(0,0,color,255))
+	img.save(path + "/" + fileName[:fileName.find('.')] + '_BF.bmp')
+	print("Blue Filtered file has been created")
+
+#idk
+def test(fileName, path):
+	im = Image.open(path + '/' + fileName)
+	pixels = im.load()
+	width = im.size[0];
+	height = im.size[1];
+	global img
+	img = Image.new("RGBA",(width, height),(0,0,0,0))
+	for x in range(width):
+		for y in range(height):
+			color = pixels[x,y][0] 
+			img.putpixel((x,y),(color,0,0,255))
+	img.save(path + "/" + fileName[:fileName.find('.')] + '_test.bmp')
+	print("Test file has been created")
