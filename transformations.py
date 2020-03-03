@@ -140,9 +140,9 @@ def addSameDimPhotos(f1,f2,path1,path2):
 		img = Image.new("RGBA",(width, height),(0,0,0,0))
 		for x in range(width):
 			for y in range(height):
-				R=(p1[x,y][0]+p2[x,y][0])
-				G=(p1[x,y][1]+p2[x,y][1])
-				B=(p1[x,y][2]+p2[x,y][2])
+				R = (p1[x,y][0]+p2[x,y][0])
+				G = (p1[x,y][1]+p2[x,y][1])
+				B = (p1[x,y][2]+p2[x,y][2])
 				img.putpixel((x,y),(R,G,B,255))
 	img.save('images/' + f1[:f1.find('.')] + '_plus_' + f2[:f2.find('.')] + '.bmp')
 	print("Files added")
@@ -160,9 +160,9 @@ def addPhotos(f1,f2,path1,path2):
 		for y in range(height):
 			fileOnePixel = p1[x,y] if x < im1.size[0] and y < im1.size[1] else [0,0,0]
 			fileTwoPixel = p2[x,y] if x < im2.size[0] and y < im2.size[1] else [0,0,0]
-			R=int((fileOnePixel[0]+fileTwoPixel[0]))
-			G=int((fileOnePixel[1]+fileTwoPixel[1]))
-			B=int((fileOnePixel[2]+fileTwoPixel[2]))
+			R = int((fileOnePixel[0]+fileTwoPixel[0]))
+			G = int((fileOnePixel[1]+fileTwoPixel[1]))
+			B = int((fileOnePixel[2]+fileTwoPixel[2]))
 			img.putpixel((x,y),(R,G,B,255))
 	img.save('images/' + f1[:f1.find('.')] + '_plus_' + f2[:f2.find('.')] + '.bmp')
 	print("Files added")
